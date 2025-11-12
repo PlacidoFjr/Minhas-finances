@@ -2,15 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Sistema de Controle Financeiro - Backend",
-  "main": "dist/server.js",
+  "main": "src/server.js",
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
   },
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "build": "tsc",
-    "start": "node dist/server.js",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
