@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5001/api';
+const API_BASE_URL = 'http://localhost:5000/api';
 
 // Criar instância do axios
 const api = axios.create({
@@ -26,6 +26,10 @@ api.interceptors.response.use(
     if (error.response?.status === 401) {
       localStorage.removeItem('token');
       window.location.href = '/login';
+    }
+    // Log de erros 404 para debug
+    if (error.response?.status === 404) {
+      console.error('Rota não encontrada:', error.config?.url);
     }
     return Promise.reject(error);
   }

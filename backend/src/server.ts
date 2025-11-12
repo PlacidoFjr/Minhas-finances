@@ -18,6 +18,15 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/transactions', transactionRoutes);
 
+// Rota catch-all para rotas não encontradas
+app.use('*', (req, res) => {
+  res.status(404).json({ 
+    error: 'NOT_FOUND',
+    message: 'Rota não encontrada',
+    path: req.originalUrl
+  });
+});
+
 // Inicializar banco de dados
 const db = new Database();
 db.initialize();
