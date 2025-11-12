@@ -1,130 +1,108 @@
-# 💰 Sistema de Controle Financeiro
+# 💰 Minhas Finanças
 
-Um sistema completo de controle financeiro pessoal com interface moderna e responsiva, desenvolvido com React (TypeScript) no frontend e Node.js (TypeScript) no backend.
+Aplicação completa de controle financeiro pessoal com interface moderna e responsiva. Frontend em React + TypeScript e backend em Node.js + Express + SQLite.
 
 ## 🚀 Funcionalidades
 
 ### Autenticação
-- ✅ Cadastro de novos usuários
+- ✅ Cadastro de usuários
 - ✅ Login seguro com JWT
 - ✅ Proteção de rotas privadas
 
-### Transações Financeiras
-- ✅ Adicionar transações (entradas/saídas)
-- ✅ Editar transações existentes
-- ✅ Excluir transações
-- ✅ Categorias pré-definidas para entradas e saídas
+### Transações
+- ✅ Adicionar, editar e excluir transações
+- ✅ Tipos: entradas e saídas
+- ✅ Categorias pré‑definidas para organização
 
 ### Dashboard Financeiro
-- ✅ Cards de resumo financeiro (saldo, total de entradas, total de saídas)
-- ✅ Gráfico de pizza - distribuição por tipo (entradas/saídas)
-- ✅ Gráfico de barras - top 5 categorias mais utilizadas
-- ✅ Lista detalhada de todas as transações
+- ✅ Cards de resumo (saldo, entradas, saídas)
+- ✅ Gráficos: pizza por tipo, pizza por categoria, linha de tendência mensal, barras de comparação mensal
+- ✅ Filtros por tipo, categoria e período com botão “Limpar filtros”
+- ✅ Lista detalhada de transações
 
-### Interface do Usuário
-- ✅ Design moderno e responsivo
-- ✅ Interface intuitiva e fácil de usar
-- ✅ Formulários com validação
-- ✅ Feedback visual para ações do usuário
-
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias
 
 ### Frontend
-- React 18 com TypeScript
-- React Router DOM para navegação
-- Axios para requisições HTTP
-- Recharts para gráficos interativos
-- CSS3 com design responsivo
+- React 18 + TypeScript
+- Axios
+- Recharts
+- CSS responsivo
 
 ### Backend
-- Node.js com TypeScript
-- Express.js para API REST
-- SQLite3 para banco de dados
-- JWT para autenticação
-- Bcrypt.js para hash de senhas
-- CORS para comunicação entre frontend e backend
+- Node.js + TypeScript
+- Express
+- SQLite3
+- JWT + bcrypt
+- CORS
 
 ## 📦 Instalação e Configuração
 
-### Pré-requisitos
-- Node.js (versão 16 ou superior)
-- npm ou yarn
+### Pré‑requisitos
+- Node.js 16+
+- npm (ou yarn)
 
-### Passos para instalação
+### Passos
 
-1. **Clone o repositório**
+1) Clone o repositório
 ```bash
-git clone [url-do-repositorio]
-cd sistema-controle-financeiro
+git clone https://github.com/<seu-usuario>/minhas-financas.git
+cd minhas-financas
 ```
 
-2. **Configure o Backend**
+2) Backend
 ```bash
 cd backend
 npm install
 ```
 
-3. **Configure o Frontend**
+3) Frontend
 ```bash
 cd ../frontend
 npm install
 ```
 
-4. **Configure as variáveis de ambiente**
-O backend já vem com um arquivo `.env` configurado com:
+4) Variáveis de ambiente
+Crie `backend/.env` com:
 ```
-JWT_SECRET=your-secret-key-here
+JWT_SECRET=uma-chave-secreta-segura
 PORT=5001
 NODE_ENV=development
 ```
+Opcional: crie `frontend/.env` se precisar parametrizar URL da API.
 
-## 🚀 Como executar
+## 🚀 Execução
 
-### Executar o Backend
+### Backend
 ```bash
 cd backend
 npm run dev
 ```
-O servidor backend iniciará na porta 5001.
+Servidor na porta `5001`.
 
-### Executar o Frontend
+### Frontend
 ```bash
 cd frontend
 npm start
 ```
-O servidor frontend iniciará na porta 3000.
+Aplicação em `http://localhost:3000`.
 
-### Acessar a aplicação
-Abra seu navegador e acesse: `http://localhost:3000`
-
-## 📁 Estrutura do Projeto
+## 📁 Estrutura
 
 ```
-sistema-controle-financeiro/
+minhas-financas/
 ├── backend/
 │   ├── src/
-│   │   ├── database.ts      # Configuração do SQLite
-│   │   ├── server.ts        # Servidor Express
+│   │   ├── database.ts
+│   │   ├── server.ts
 │   │   ├── middleware/
-│   │   │   └── auth.ts      # Middleware de autenticação
 │   │   └── routes/
-│   │       ├── auth.ts      # Rotas de autenticação
-│   │       └── transactions.ts # Rotas de transações
-│   ├── .env                 # Variáveis de ambiente
+│   ├── .env
 │   ├── package.json
 │   └── tsconfig.json
 └── frontend/
     ├── src/
-    │   ├── components/        # Componentes React
-    │   │   ├── Login.tsx
-    │   │   ├── Register.tsx
-    │   │   ├── Dashboard.tsx
-    │   │   ├── SummaryCards.tsx
-    │   │   ├── TransactionForm.tsx
-    │   │   ├── TransactionList.tsx
-    │   │   └── Charts.tsx
+    │   ├── components/
     │   ├── services/
-    │   │   └── api.ts         # Serviço de API
     │   ├── App.tsx
     │   └── index.tsx
     ├── package.json
@@ -132,67 +110,41 @@ sistema-controle-financeiro/
 ```
 
 ## 🔒 Segurança
+- Senhas com hash (bcrypt)
+- JWT para autenticação
+- Validação de dados
+- Queries parametrizadas no banco
 
-- Senhas são hasheadas usando bcrypt
-- Autenticação baseada em JWT
-- Validação de dados no frontend e backend
-- Proteção contra SQL injection com queries parametrizadas
+## 📊 Detalhes do Dashboard
+- Resumo de saldo/entradas/saídas
+- Gráficos de pizza (tipo e categoria)
+- Tendência mensal (linha)
+- Comparação mensal (barras)
+- Filtros com botão de limpar
 
-## 📊 Funcionalidades Detalhadas
-
-### Dashboard
-- **Resumo Financeiro**: Visualização rápida do saldo total, total de entradas e total de saídas
-- **Gráficos Interativos**: 
-  - Gráfico de pizza mostrando a distribuição entre entradas e saídas
-  - Gráfico de barras mostrando as 5 categorias com maiores valores
-
-### Gerenciamento de Transações
-- **Adicionar Transações**: Formulário intuitivo com validação
-- **Editar Transações**: Modal de edição fácil de usar
-- **Excluir Transações**: Confirmação antes de excluir
-- **Categorias**: Lista pré-definida de categorias para melhor organização
+## 🔧 API (principais)
 
 ### Autenticação
-- **Cadastro**: Novos usuários podem se cadastrar com nome, email e senha
-- **Login**: Sistema seguro de login com geração de token JWT
-- **Sessão**: Token armazenado no localStorage para manter a sessão
+- `POST /api/auth/register` — cadastrar
+- `POST /api/auth/login` — login
 
-## 🎨 Design
+### Transações (autenticado)
+- `GET /api/transactions` — listar
+- `POST /api/transactions` — criar
+- `PUT /api/transactions/:id` — atualizar
+- `DELETE /api/transactions/:id` — excluir
+- `GET /api/transactions/summary` — resumo
+- `GET /api/transactions/categories` — categorias frequentes
 
-- Interface moderna com gradientes e sombras
-- Totalmente responsiva para dispositivos móveis
-- Cores intuitivas: verde para entradas, vermelho para saídas
-- Animações suaves para melhor experiência do usuário
-
-## 🔧 API Endpoints
-
-### Autenticação
-- `POST /api/auth/register` - Cadastrar novo usuário
-- `POST /api/auth/login` - Fazer login
-
-### Transações (requer autenticação)
-- `GET /api/transactions` - Listar transações do usuário
-- `POST /api/transactions` - Criar nova transação
-- `PUT /api/transactions/:id` - Atualizar transação
-- `DELETE /api/transactions/:id` - Excluir transação
-- `GET /api/transactions/summary` - Obter resumo financeiro
-- `GET /api/transactions/categories` - Obter categorias frequentes
-
-## 📝 Notas Importantes
-
-- O banco de dados SQLite é criado automaticamente na primeira execução
-- As tabelas são criadas automaticamente pelo sistema
-- O sistema está configurado para ambiente de desenvolvimento
-- Para produção, ajuste as variáveis de ambiente e configure um banco de dados mais robusto
+## 📝 Notas
+- Banco SQLite criado automaticamente
+- Tabelas geradas na primeira execução
+- Configuração voltada a desenvolvimento
 
 ## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+Contribuições são bem‑vindas via issues e pull requests.
 
 ## 📄 Licença
+MIT
 
-Este projeto está licenciado sob a licença MIT.
-
----
-
-Desenvolvido com ❤️ para controle financeiro pessoal.
+— Desenvolvido com ❤️ para controle financeiro pessoal.
