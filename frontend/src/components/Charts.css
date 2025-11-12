@@ -1,0 +1,115 @@
+.charts-container {
+  padding: 2rem 0;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.chart-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.chart-card.full-width {
+  /* não utilizado no layout atual, mantido por compatibilidade */
+}
+
+.chart-card h3 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.chart-card .recharts-wrapper {
+  margin: 0 auto;
+}
+
+/* Tooltip personalizado */
+.custom-tooltip {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.custom-tooltip .label {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.custom-tooltip .intro {
+  margin: 4px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Animações suaves */
+.recharts-cartesian-axis-tick-value {
+  transition: all 0.2s ease;
+}
+
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #e5e7eb;
+  stroke-width: 1;
+}
+
+.recharts-legend-item-text {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .charts-grid {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+@media (max-width: 768px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chart-card {
+    padding: 1.5rem;
+  }
+  
+  .chart-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .charts-grid {
+    gap: 1rem;
+  }
+  
+  .chart-card {
+    padding: 1rem;
+  }
+  
+  .chart-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+}
