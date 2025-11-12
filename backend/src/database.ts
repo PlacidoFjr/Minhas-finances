@@ -6,12 +6,15 @@ export class Database {
   private db: sqlite3.Database;
 
   constructor() {
-    const dbPath = path.join(__dirname, '../database.sqlite');
+    // Em produção (Railway), usar caminho absoluto
+    // Em desenvolvimento, usar caminho relativo
+    const dbPath = process.env.DATABASE_PATH || path.join(__dirname, '../database.sqlite');
     this.db = new sqlite3.Database(dbPath, (err) => {
       if (err) {
         console.error('Erro ao conectar ao banco de dados:', err);
       } else {
         console.log('✅ Conectado ao banco de dados SQLite');
+        console.log('📁 Caminho do banco:', dbPath);
       }
     });
   }

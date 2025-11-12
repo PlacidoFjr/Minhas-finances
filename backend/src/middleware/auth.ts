@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import { Request } from 'express';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'sua-chave-secreta-super-segura';
 
